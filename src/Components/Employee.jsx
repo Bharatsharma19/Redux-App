@@ -12,7 +12,7 @@ const Employee = () => {
     return (
         <>
             <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                <Grid container spaces={2} style={{ width: 300 }}>
+                <Grid container spacing={2} style={{ width: 300, marginTop: 4, }}>
                     <Grid item xs={12}>
                         <TextField fullWidth label="Mobile Number" onChange={(event) => setMobileNumber(event.target.value)} />
                     </Grid>

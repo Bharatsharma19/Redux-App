@@ -1,11 +1,14 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Employee from "./Components/Employee";
 
 function App() {
   return (
     <>
-      <div>
-        <Employee />
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Employee />} path="/employee" />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
