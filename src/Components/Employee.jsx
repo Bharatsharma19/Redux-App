@@ -39,9 +39,9 @@ const Employee = () => {
                         <TextField fullWidth label="City" onChange={(event) => setCity(event.target.value)} />
                     </Grid>
                     <Grid item xs={12}>
-                        <Button fullWidth variant='outlined'>
-                            Upload Picture
-                            <input hidden accept='image/' type='file' onChange={handlePicture} />
+                        <Button fullWidth variant="outlined" component="label">
+                            Upload
+                            <input hidden accept="image/*" type="file" onChange={handlePicture} />
                         </Button>
                     </Grid>
                     <Grid item xs={12} style={{ marginTop: 8 }}>
