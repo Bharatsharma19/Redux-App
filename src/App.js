@@ -1,14 +1,14 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Employee from "./Components/Employee";
 
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <Router>
         <Routes>
           <Route element={<Employee />} path="/employee" />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </>
   );
 }
