@@ -8,6 +8,10 @@ export default function RootReducer(state = initialState, actions) {
       state.employee[actions.payload[0]] = actions.payload[1];
       return { employee: state.employee };
 
+    case "DELETE_EMPLOYEE":
+      delete state.employee[actions.payload[0]];
+      return { employee: state.employee };
+
     default:
       return state;
   }
