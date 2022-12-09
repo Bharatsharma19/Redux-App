@@ -1,9 +1,10 @@
-import { React, useEffect } from 'react'
+import { React } from 'react'
 import { useSelector } from 'react-redux'
 
 const DisplayAllEmployee = () => {
     var employee = useSelector(state => state.employee)
-    console.log(employee)
+    var keys = Object.keys(employee)
+    var employeeRecord = Object.values(employee)
 
     return (
         <div>DisplayAllEmployee</div>
