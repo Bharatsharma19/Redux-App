@@ -13,9 +13,10 @@ const DisplayAllEmployee = () => {
     const [refresh, setRefresh] = useState(false)
 
     var employee = useSelector(state => state.employee)
-    {/*var keys = Object.keys(employee)*/ }
+    // var keys = Object.keys(employee)
     var employeeRecord = Object.values(employee)
 
+    // eslint-disable-next-line
     {/*
     console.log(employee)
     console.log(keys)
