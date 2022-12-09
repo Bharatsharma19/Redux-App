@@ -52,12 +52,12 @@ const Employee = () => {
                     </Grid>
                     <Grid item xs={12} style={{ marginTop: 8 }}>
                         <Button fullWidth variant='contained' onClick={handleSubmit}>
-                            Submit
+                            Add Employee
                         </Button>
                     </Grid>
                     <br />
                     <Grid item xs={12} style={{ marginTop: 8 }}>
-                        <Button fullWidth variant='contained' onClick={handleDisplay}>
+                        <Button fullWidth variant='outlined' onClick={handleDisplay}>
                             View All Employee
                         </Button>
                     </Grid>
