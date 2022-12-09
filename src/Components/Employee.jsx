@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { Grid, TextField, Button } from '@mui/material'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 const Employee = () => {
+    var navigate = useNavigate()
 
     const [mobileNumber, setMobileNumber] = useState("")
     const [email, setEmail] = useState("")
@@ -20,6 +22,10 @@ const Employee = () => {
         var body = { mobileNumber: mobileNumber, email: email, name: name, city: city, picture: picture }
 
         dispatch({ type: 'ADD_EMPLOYEE', payload: [mobileNumber, body] })
+    }
+
+    const handleDisplay = () => {
+        navigate("/employee")
     }
 
     return (
@@ -47,6 +53,12 @@ const Employee = () => {
                     <Grid item xs={12} style={{ marginTop: 8 }}>
                         <Button fullWidth variant='contained' onClick={handleSubmit}>
                             Submit
+                        </Button>
+                    </Grid>
+                    <br />
+                    <Grid item xs={12} style={{ marginTop: 8 }}>
+                        <Button fullWidth variant='contained' onClick={handleDisplay}>
+                            View All Employee
                         </Button>
                     </Grid>
                 </Grid>

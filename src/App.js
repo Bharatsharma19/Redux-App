@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import DisplayAllEmployee from "./Components/DisplayAllEmployee";
 import Employee from "./Components/Employee";
 
 function App() {
@@ -6,7 +7,8 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route element={<Employee />} path="/employee" />
+          <Route element={<Employee />} path="/" />
+          <Route element={<DisplayAllEmployee />} path="/employee" />
         </Routes>
       </Router>
     </>
