@@ -2,14 +2,30 @@ import { React } from 'react'
 import { useSelector } from 'react-redux'
 import MaterialTable from '@material-table/core'
 import { Avatar } from '@mui/material'
+import { useDispatch } from 'react-redux'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const DisplayAllEmployee = () => {
+    var dispatch = useDispatch()
+    var navigate = useNavigate()
+
+    const [refresh, setRefresh] = useState(false)
+
     var employee = useSelector(state => state.employee)
-    var keys = Object.keys(employee)
+    {/*var keys = Object.keys(employee)*/ }
     var employeeRecord = Object.values(employee)
 
-    const handleDeleteEmployee = (rowData) => {
+    {/*
+    console.log(employee)
+    console.log(keys)
+    console.log(employeeRecord)
+    */}
 
+    const handleDeleteEmployee = (rowData) => {
+        dispatch({ type: 'DELETE_EMPLOYEE', payload: [rowData.mobileNumber] })
+        alert("Employee Deleted")
+        setRefresh(!refresh)
     }
 
     function displayEmployee() {
@@ -31,12 +47,18 @@ const DisplayAllEmployee = () => {
                     {
                         icon: 'edit',
                         tooltip: 'Edit Employee Details',
-                        onClick: (event, rowData) => { },
+                        onClick: (rowData) => { },
                     },
                     {
                         icon: 'delete',
                         tooltip: 'Delete Employee',
                         onClick: (rowData) => { handleDeleteEmployee(rowData) },
+                    },
+                    {
+                        icon: 'add',
+                        tooltip: 'Add Employee',
+                        onClick: () => { navigate("/") },
+                        isFreeAction: true,
                     }
                 ]}
             />
