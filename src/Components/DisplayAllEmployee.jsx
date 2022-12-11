@@ -62,7 +62,7 @@ const DisplayAllEmployee = () => {
 
     const handleDeleteEmployee = (rowData) => {
         dispatch({ type: 'DELETE_EMPLOYEE', payload: [rowData.mobileNumber] })
-        alert("Employee Deleted")
+
         setRefresh(!refresh)
 
         Swal.fire({
