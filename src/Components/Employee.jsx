@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Grid, TextField, Button } from '@mui/material'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 const Employee = () => {
     var navigate = useNavigate()
@@ -22,6 +23,19 @@ const Employee = () => {
         var body = { mobileNumber: mobileNumber, email: email, name: name, city: city, picture: picture }
 
         dispatch({ type: 'ADD_EMPLOYEE', payload: [mobileNumber, body] })
+
+        Swal.fire({
+            title: "Success",
+            text: "Employee Successfully Added!",
+            icon: "success",
+            confirmButtonText: "Close",
+        });
+
+        setMobileNumber("")
+        setName("")
+        setCity("")
+        setEmail("")
+        setPicture("")
     }
 
     const handleDisplay = () => {
