@@ -65,7 +65,11 @@ const DisplayAllEmployee = () => {
         setRefresh(!refresh)
     }
 
-    const handleEdit = (rowData) => { }
+    const handleEdit = () => {
+        var body = { mobileNumber: mobileNumber, email: email, name: name, city: city, picture: picture }
+
+        dispatch({ type: 'ADD_EMPLOYEE', payload: [mobileNumber, body] })
+    }
 
     const showHidePicture = () => {
         return (
