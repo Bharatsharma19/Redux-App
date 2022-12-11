@@ -11,6 +11,7 @@ import DialogContent from '@mui/material/DialogContent';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Grid, TextField, Button } from '@mui/material'
 import { useTheme } from '@mui/material/styles';
+import Swal from 'sweetalert2'
 
 const DisplayAllEmployee = () => {
     var dispatch = useDispatch()
@@ -63,12 +64,28 @@ const DisplayAllEmployee = () => {
         dispatch({ type: 'DELETE_EMPLOYEE', payload: [rowData.mobileNumber] })
         alert("Employee Deleted")
         setRefresh(!refresh)
+
+        Swal.fire({
+            title: "Success",
+            text: "Employee Deleted Successfully",
+            icon: "success",
+            confirmButtonText: "Close",
+        });
     }
 
     const handleEdit = () => {
         var body = { mobileNumber: mobileNumber, email: email, name: name, city: city, picture: picture }
 
         dispatch({ type: 'ADD_EMPLOYEE', payload: [mobileNumber, body] })
+
+        Swal.fire({
+            title: "Success",
+            text: "Employee Details Updated",
+            icon: "success",
+            confirmButtonText: "Close",
+        });
+
+        setOpen(false)
     }
 
     const showHidePicture = () => {
