@@ -69,57 +69,62 @@ const DisplayAllEmployee = () => {
 
     function dialogContent() {
         return (
-            <div>
-                <Grid container spacing={3}>
-                    <input value={mobileNumber} hidden />
-                    <Grid item xs={12}>
-                        <TextField value={mobileNumber} fullWidth label="Mobile Number" onChange={(event) => setMobileNumber(event.target.value)} />
-                    </Grid>
-                    <Grid item xs={12}>
-                        <TextField value={email} fullWidth label="Email Id" onChange={(event) => setEmail(event.target.value)} />
-                    </Grid>
-                    <Grid item xs={12}>
-                        <TextField value={name} fullWidth label="Name" onChange={(event) => setName(event.target.value)} />
-                    </Grid>
-                    <Grid item xs={12}>
-                        <TextField value={city} fullWidth label="City" onChange={(event) => setCity(event.target.value)} />
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Button fullWidth variant="outlined" component="label">
-                            Upload
-                            <input hidden accept="image/*" type="file" onChange={handlePicture} />
-                        </Button>
-                    </Grid>
-                    <Grid item xs={12} style={{ marginTop: 8 }}>
-                        <Button fullWidth variant='contained' onClick={handleEdit}>
-                            Edit Details
-                        </Button>
-                    </Grid>
-                    <br />
+            <Grid container spacing={2}>
+                <Grid item xs={12}>
+                    Edit Employee Details
                 </Grid>
-            </div>
+                <Grid item xs={12}>
+                    <TextField value={mobileNumber} label="Mobile Number" onChange={(event) => setMobileNumber(event.target.value)} fullWidth />
+                </Grid>
+                <Grid item xs={12}>
+                    <TextField value={email} label="Email Id" onChange={(event) => setEmail(event.target.value)} fullWidth />
+                </Grid>
+                <Grid item xs={12}>
+                    <TextField value={name} label="Name" onChange={(event) => setName(event.target.value)} fullWidth />
+                </Grid>
+                <Grid item xs={12}>
+                    <TextField value={city} label="City" onChange={(event) => setCity(event.target.value)} fullWidth />
+                </Grid>
+                <Grid
+                    item
+                    xs={6}
+                    style={{ marginTop: "8px", marginBottom: "4px", display: "flex", justifyContent: "center", alignItems: "center" }}
+                >
+                    <Avatar
+                        alt="Image"
+                        src={picture}
+                        sx={{ width: 128, height: 56 }}
+                        variant="rounded"
+                    />
+                </Grid>
+                <Grid item xs={12} style={{ marginTop: 8 }}>
+                    <Button fullWidth variant='outlined' onClick={handleEdit}>
+                        Edit Details
+                    </Button>
+                </Grid>
+                <br />
+            </Grid>
         )
     }
 
     function displayDialog() {
         return (
-            <div>
-                <Dialog
-                    fullScreen={fullScreen}
-                    open={open}
-                    onClose={handleClose}
-                    aria-labelledby="responsive-dialog-title"
-                >
-                    <DialogContent>
-                        {dialogContent()}
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={handleClose} autoFocus>
-                            Close
-                        </Button>
-                    </DialogActions>
-                </Dialog>
-            </div>
+            <Dialog
+                fullScreen={fullScreen}
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="responsive-dialog-title"
+                style={{ display: "block", width: "54%", padding: 10, borderRadius: 12, marginLeft: "auto", marginRight: "auto", }}
+            >
+                <DialogContent>
+                    {dialogContent()}
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose}>
+                        Close
+                    </Button>
+                </DialogActions>
+            </Dialog>
         )
     }
 
@@ -142,7 +147,7 @@ const DisplayAllEmployee = () => {
                     {
                         icon: 'edit',
                         tooltip: 'Edit Employee Details',
-                        onClick: (rowData) => { handleDialogOpen(rowData) },
+                        onClick: (event, rowData) => { handleDialogOpen(rowData) },
                     },
                     {
                         icon: 'delete',
@@ -163,9 +168,7 @@ const DisplayAllEmployee = () => {
     return (
         <>
             {displayEmployee()}
-            <div>
-                {displayDialog()}
-            </div>
+            {displayDialog()}
         </>
     )
 }
