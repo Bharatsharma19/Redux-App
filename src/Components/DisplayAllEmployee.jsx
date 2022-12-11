@@ -67,33 +67,70 @@ const DisplayAllEmployee = () => {
 
     const handleEdit = (rowData) => { }
 
+    const showHidePicture = () => {
+        return (
+            <div>
+                <>
+                    <Button variant="outlined" component="label" fullWidth>
+                        Upload
+                        <input
+                            hidden
+                            accept="image/*"
+                            type="file"
+                            onChange={handlePicture}
+                        />
+                    </Button>
+                </>
+            </div >
+        )
+    }
+
     function dialogContent() {
         return (
             <Grid container spacing={2}>
-                <Grid item xs={12}>
+                <Grid item xs={12} style={{ color: "black", fontSize: 24, fontWeight: "bold", marginBottom: 12, }}>
                     Edit Employee Details
                 </Grid>
                 <Grid item xs={12}>
-                    <TextField value={mobileNumber} label="Mobile Number" onChange={(event) => setMobileNumber(event.target.value)} fullWidth />
+                    <TextField inputProps={{
+                        style: {
+                            padding: 16
+                        }
+                    }} value={mobileNumber} label="Mobile Number" onChange={(event) => setMobileNumber(event.target.value)} fullWidth />
                 </Grid>
                 <Grid item xs={12}>
-                    <TextField value={email} label="Email Id" onChange={(event) => setEmail(event.target.value)} fullWidth />
+                    <TextField inputProps={{
+                        style: {
+                            padding: 16
+                        }
+                    }} value={email} label="Email Id" onChange={(event) => setEmail(event.target.value)} fullWidth />
                 </Grid>
                 <Grid item xs={12}>
-                    <TextField value={name} label="Name" onChange={(event) => setName(event.target.value)} fullWidth />
+                    <TextField inputProps={{
+                        style: {
+                            padding: 16
+                        }
+                    }} value={name} label="Name" onChange={(event) => setName(event.target.value)} fullWidth />
                 </Grid>
                 <Grid item xs={12}>
-                    <TextField value={city} label="City" onChange={(event) => setCity(event.target.value)} fullWidth />
+                    <TextField inputProps={{
+                        style: {
+                            padding: 16
+                        }
+                    }} value={city} label="City" onChange={(event) => setCity(event.target.value)} fullWidth />
+                </Grid>
+                <Grid item xs={6} style={{ marginTop: "64px", marginBottom: "4px" }}>
+                    {showHidePicture()}
                 </Grid>
                 <Grid
                     item
                     xs={6}
-                    style={{ marginTop: "8px", marginBottom: "4px", display: "flex", justifyContent: "center", alignItems: "center" }}
+                    style={{ marginTop: "8px", marginBottom: "4px" }}
                 >
                     <Avatar
                         alt="Image"
                         src={picture}
-                        sx={{ width: 128, height: 56 }}
+                        sx={{ width: 192, height: 128 }}
                         variant="rounded"
                     />
                 </Grid>
