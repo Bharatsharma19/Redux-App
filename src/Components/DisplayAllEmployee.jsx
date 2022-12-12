@@ -63,7 +63,7 @@ const DisplayAllEmployee = () => {
     const handleDeleteEmployee = (rowData) => {
         dispatch({ type: 'DELETE_EMPLOYEE', payload: [rowData.mobileNumber] })
 
-        setRefresh(!refresh)
+        setRefresh(true)
 
         Swal.fire({
             title: "Success",
