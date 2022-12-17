@@ -23,13 +23,6 @@ const DisplayAllEmployee = () => {
     // var keys = Object.keys(employee)
     var employeeRecord = Object.values(employee)
 
-    // eslint-disable-next-line
-    {/*
-    console.log(employee)
-    console.log(keys)
-    console.log(employeeRecord)
-    */}
-
     const [mobileNumber, setMobileNumber] = useState("")
     const [email, setEmail] = useState("")
     const [name, setName] = useState("")
